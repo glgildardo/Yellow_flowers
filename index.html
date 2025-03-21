@@ -144,19 +144,22 @@
         setInterval(createFlower, 400);
 
         function showSurprise() {
-            document.querySelector(".hidden-content").style.display = "block";
-            document.querySelector(".flower-bouquet").classList.add("show");
-            document.querySelector(".flower-bouquet_2").classList.add("show");
-            document.querySelector(".flower-bouquet_3").classList.add("show");
+        document.querySelector(".hidden-content").style.display = "block";
+        document.querySelector(".flower-bouquet").classList.add("show");
+        document.querySelector(".flower-bouquet_2").classList.add("show");
+        document.querySelector(".flower-bouquet_3").classList.add("show");
 
-            let audio = document.getElementById("bg-music");
-            audio.play().catch(error => console.log("Autoplay bloqueado por el navegador."));
+        let audio = document.getElementById("bg-music");
+        audio.volume = 0.3; // 🔊 Ajusta el volumen al 30%
+        audio.play().catch(error => console.log("Autoplay bloqueado por el navegador."));
+ 
         }
 
         window.addEventListener('load', () => {
             let audio = document.getElementById("bg-music");
-            audio.play().catch(error => console.log("Autoplay bloqueado, se activará con el botón."));
-        });
+        audio.volume = 0.3; // 🔊 Ajusta el volumen al 30%
+        audio.play().catch(error => console.log("Autoplay bloqueado, se activará con el botón."));
+       });
     </script>
 
 </body>
