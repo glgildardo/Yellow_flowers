@@ -15,34 +15,38 @@
             overflow: hidden;
             text-align: center;
             flex-direction: column;
+            padding: 20px;
         }
 
         h1 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: #e9a700;
             font-family: 'Brush Script MT', cursive;
+            margin: 0;
         }
 
         p {
             font-size: 1.2rem;
             color: #555;
+            max-width: 90%;
         }
 
         .btn {
             background-color: #e9a700;
             color: white;
             border: none;
-            padding: 10px 20px;
-            font-size: 1rem;
+            padding: 12px 25px;
+            font-size: 1.1rem;
             cursor: pointer;
-            border-radius: 10px;
+            border-radius: 15px;
             margin-top: 20px;
-            transition: transform 0.3s ease;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .btn:hover {
             background-color: #d48c00;
-            transform: scale(1.1);
+            transform: scale(1.05);
         }
 
         .flowers {
@@ -84,21 +88,7 @@
             font-family: 'Brush Script MT', cursive;
         }
 
-        .flower-bouquet {
-            width: 250px;
-            height: auto;
-            opacity: 0;
-            transform: scale(0);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .flower-bouquet_2 {
-            width: 250px;
-            height: auto;
-            opacity: 0;
-            transform: scale(0);
-            transition: opacity 1s ease, transform 1s ease;
-        }
-        .flower-bouquet_3 {
+        .flower-bouquet, .flower-bouquet_2, .flower-bouquet_3 {
             width: 250px;
             height: auto;
             opacity: 0;
@@ -109,6 +99,31 @@
         .show {
             opacity: 1;
             transform: scale(1);
+        }
+
+        /* 🎯 Responsive para móviles */
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 10px 20px;
+            }
+
+            .flower-bouquet, .flower-bouquet_2, .flower-bouquet_3 {
+                width: 180px;
+            }
+
+            .flower {
+                width: 20px;
+                height: 20px;
+            }
         }
 
     </style>
@@ -126,7 +141,6 @@
         <img class="flower-bouquet_3" src="./us.jpg" alt="Ramo de Flores">
     </div>
 
-
     <div class="flowers"></div>
 
     <!-- AUDIO -->
@@ -139,12 +153,12 @@
             const flower = document.createElement("div");
             flower.classList.add("flower");
             flower.style.left = Math.random() * window.innerWidth + "px";
-            flower.style.animationDuration = Math.random() * 3 + 2 + "s";
+            flower.style.animationDuration = Math.random() * 4 + 2 + "s";
             document.querySelector(".flowers").appendChild(flower);
             setTimeout(() => flower.remove(), 5000);
         }
 
-        setInterval(createFlower, 300);
+        setInterval(createFlower, 400);
 
         function showSurprise() {
             document.querySelector(".hidden-content").style.display = "block";
@@ -154,7 +168,6 @@
 
             let audio = document.getElementById("bg-music");
             audio.play().catch(error => console.log("Autoplay bloqueado por el navegador."));
-      
         }
 
         window.addEventListener('load', () => {
